@@ -10,7 +10,7 @@ const findFile = (values: any[]): object | undefined =>
   values.find((value) =>
     Array.isArray(value)
       ? findFile(value)
-      : typeof value === 'object' && value.rawFile instanceof File,
+      : value && typeof value === 'object' && value.rawFile instanceof File,
   );
 
 const useOnSubmit = ({
